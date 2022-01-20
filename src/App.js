@@ -28,6 +28,14 @@ function App() {
   useEffect(() => {
     var elementgroovebox = document.getElementById("idheader");
     elementgroovebox.style.visibility = "hidden";
+
+    let timerId = window.setTimeout(async function tick() {
+      //clapSound.play()
+      clearInterval(timerId)
+      console.log("clap loop " + id++)
+      miFuncion()
+      timerId = setTimeout(tick, 7680); // (*)
+    }, 6000);
   }, []);
   
   var clapSound = new Howl({
@@ -51,8 +59,6 @@ function App() {
   let id = 10;
 
   const miFuncion = () => {
-    // Aquí va tu código
-    // Los parámetros son opcionales completamente
     
     loading = false;
     var elementholder = document.getElementById("divholder");
@@ -80,7 +86,6 @@ function App() {
     var elementpad = document.getElementById("padbtndiv");
     divplaycolor(elementpad, false)
 
-    //console.log("evaluacion " + localStorage.getItem('namey'))
     if(sada)
     {
       padSound.play()
@@ -108,42 +113,6 @@ function App() {
     }
     
   }
-
-  let timerId = window.setTimeout(async function tick() {
-    //clapSound.play()
-    clearInterval(timerId)
-    console.log("clap loop " + id++)
-    miFuncion()
-    timerId = setTimeout(tick, 7680); // (*)
-  }, 6000);
-
-
-  //elementgroovebox.style.display = "none";
-
-  //setTimeout(function(){console.log('test alerta  ready');}, 4080);
-
-
-  //localStorage.setItem('namey', 'falsey');
-  ///setInterval(miFuncion, 7650);
-
-  /*
-  padSound.on('end', function(){
-    //setPadActive(!padActive)
-    console.log("i EeEsacasds iiiddddd: " + idpads)
-    console.log("end" + padActive)
-    if (id % 2 != 0)
-    {
-      console.log("iiioioioooioioidddd: " + idpads)
-      setPadActive(false)
-    }
-    else
-    {
-      console.log("vuelve a reproducir" + padActive)
-      console.log("iiiiddddd: " + idpads)
-      padSound.play()
-    }
-  });
-  */
 
   function divplaycolor(e, saas)
   {
@@ -176,22 +145,22 @@ function App() {
 
     <div className="App">
       <div id={"divholder"} className="holder">
-        <div class="circle"></div>
-        <div class="circle"></div>
-        <div class="circle"></div>
-        <div class="circle"></div>
-        <div class="circle"></div>
-        <div class="circle"></div>
-        <div class="circle"></div>
-        <div class="circle"></div>
-        <div class="circle"></div>
-        <div class="circle"></div>
-        <div class="circle"></div>
-        <div class="circle"></div>
-        <div class="circle"></div>
-        <div class="circle"></div>
-        <div class="circle"></div>
-        <div class="circle"></div>
+        <div className="circle"></div>
+        <div className="circle"></div>
+        <div className="circle"></div>
+        <div className="circle"></div>
+        <div className="circle"></div>
+        <div className="circle"></div>
+        <div className="circle"></div>
+        <div className="circle"></div>
+        <div className="circle"></div>
+        <div className="circle"></div>
+        <div className="circle"></div>
+        <div className="circle"></div>
+        <div className="circle"></div>
+        <div className="circle"></div>
+        <div className="circle"></div>
+        <div className="circle"></div>
       </div>
       <div id="myDIV" className={"loopClockDiv"}></div>
       <header id={"idheader"} className="App-header">
@@ -234,22 +203,6 @@ function App() {
             var elementpad = document.getElementById("padbtndiv");
             sada = !sada
             divplay(elementpad,sada)
-            /*
-            if (sada)
-            {
-              sada = !sada
-              divplay(elementpad,sada)
-            }
-            else
-            {
-              //setPadActive(true)
-              //padSound.play()
-              sada=!sada
-              divplay(elementpad,sada)
-              //miFuncion()
-            }
-            */
-            //console.log("activetsate is " + padActive)
           }}>pad</div>
         <div onClick={function(){console.log('el.aliki');}}>ALIKIBOX</div>
       </header>
