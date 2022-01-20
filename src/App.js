@@ -175,7 +175,7 @@ function App() {
   return (
 
     <div className="App">
-      <div id={"divholder"} class="holder">
+      <div id={"divholder"} className="holder">
         <div class="circle"></div>
         <div class="circle"></div>
         <div class="circle"></div>
